@@ -1,0 +1,161 @@
+{% load static %}
+
+<!-- start header area -->
+<header>
+    <!-- start topbar area -->
+    <section class="home1 topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>New Offers This Weekend only to Get 50% Flate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end topbar area -->
+
+    <!-- start menubar area -->
+    <section class="home1 menubar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="menu-bg">
+                        <div class="row align-items-center">
+                            <!-- logo -->
+                            <div class="col-lg-2 col-md-4 col-sm-5 col-6">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="{% static 'assets/images/home1/logo.png' %}" alt="Logo"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- main menu -->
+                            <div class="col-lg-8 col-md-4 col-sm-2 col-6">
+                                <!-- desktop-menu -->
+                                <nav class="navbar position-static justify-content-center desktop-menu p-0">
+                                    <div class="main-menu">
+                                        <ul class="menu">
+                                            <li>
+                                                <a href="/">home</a></li>
+                                            <li><a href="about.html">about us</a></li>
+                                            <li><a href="{% url 'store:all_products' %}">Shop</a>
+                                                <ul class="submenu-list">
+                                                    {% for r in categories %}
+                                                    <li {% if category.slug == r.slug %} class='selected' {% endif %}><a href="{{ r.get_absolute_url }}">{{ r.name|title }}</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">contact us</a></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                                <!-- mobile menu -->
+                                <nav class="navbar p-0 mobile-menu position-static">
+                                    <div class="header-menu position-static">
+                                        <ul class="menu">
+                                            <li class="active">
+                                                <a href="#!">home</a></li>
+                                            <li><a href="about.html">about</a></li>
+                                            <li>
+                                                <a href="#!">Shop</a>
+                                                <ul>
+                                                    <li><a href="about.html">about</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">contact us</a></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                            <!-- notification -->
+                            <div class="col-lg-2 col-md-4 col-sm-5 right-col">
+                                <div class="notification">
+                                    <ul class="d-flex justify-content-end">
+                                        <li>
+                                            <a href="account.html">
+                                                <i class="flaticon-user-1"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="wishlist.html">
+                                                <i class="flaticon-heart"></i>
+                                                <span class="quantity">01</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="dropdown">
+                                                <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="flaticon-shopping-cart-1"></i>
+                                                    <span class="quantity">02</span>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <div class="heading d-flex justify-content-between">
+                                                        <h5>3 items</h5>
+                                                        <a href="cart.html">view cart</a>
+                                                    </div>
+                                                    <ul>
+                                                        <li>
+                                                            <div class="d-flex position-relative">
+                                                                <img src="assets/images/home1/product/img1.jpg" alt="Product Image"/>
+                                                                <div class="text">
+                                                                    <a href="shop-detail-left.html">
+                                                                        <h5>Oversize Cotton Dress</h5>
+                                                                    </a>
+                                                                    <p>1 X $78.00</p>
+                                                                    <a href="#!" class="icon">
+                                                                        <i class="far fa-times-circle"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="d-flex position-relative">
+                                                                <img src="assets/images/home1/product/img2.jpg" alt="Product Image"/>
+                                                                <div class="text">
+                                                                    <a href="shop-detail-left.html">
+                                                                        <h5>Floral Mini Skirt</h5>
+                                                                    </a>
+                                                                    <p>2 X $88.00</p>
+                                                                    <a href="#!" class="icon">
+                                                                        <i class="far fa-times-circle"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="d-flex position-relative">
+                                                                <img src="assets/images/home1/product/img3.jpg" alt="Product Image"/>
+                                                                <div class="text">
+                                                                    <a href="shop-detail-left.html">
+                                                                        <h5>Flared ribbed trousers</h5>
+                                                                    </a>
+                                                                    <p>1 X $78.00</p>
+                                                                    <a href="#!" class="icon">
+                                                                        <i class="far fa-times-circle"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="total d-flex justify-content-between">
+                                                        <p>total</p>
+                                                        <p>$499.00</p>
+                                                    </div>
+                                                    <div class="check">
+                                                        <a href="checkout.html" class="button-style1">checkout <span class="btn-dot"></span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end menubar area -->
+</header>
+<!-- end header area -->

@@ -1,0 +1,190 @@
+{% extends '../base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- start banner area -->
+    <section class="inner-page banner" data-img="{% static 'assets/images/inner/banner-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>{{ category.name|title }}</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">{{ category.name|title }}</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end banner area -->
+
+    <!-- start category area -->
+    <section class="shop-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title d-flex justify-content-between align-items-center">
+                        <p>Showing 1–9 of 20 Results</p>
+                        <div class="sort d-flex align-items-center">
+                            <p>Sory by</p>
+                            <select class="select">
+                                <option value="1">popularity</option>
+                                <option value="2">best sale</option>
+                                <option value="3">newest</option>
+                                <option value="4">trending</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 home1 trending">
+                    <div class="row">
+                        {% for product in products %}
+                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                            <div class="single">
+                                {% comment %} <span class="offer">-29%</span> {% endcomment %}
+                                <div class="image">
+                                    <a href="{{ product.get_absolute_url }}">
+                                        <img src="{{ product.image.url }}" class="img-main" alt="{{ product.alt }}">
+                                    </a>
+                                    <a href="shop-detail-left.html">
+                                        <img src="{{ product.image_1.url }}" class="img-hover" alt="{{ product.alt_1 }}">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <a href="shop-detail-left.html">
+                                        <h6>{{ product.title }}</h6>
+                                    </a>
+                                    <p>Kes. {{ product.price }}</p>
+                                    <ul class="rating d-flex">
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                    </ul>
+                                    <div class="action">
+                                        <ul class="d-flex">
+                                            <li>
+                                                <a href="wishlist.html">
+                                                    <i class="flaticon-heart"></i>
+                                                    <p class="my-tooltip">
+                                                        add to wishlist
+                                                    </p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="cart.html">
+                                                    <i class="flaticon-shopping-cart-1"></i>
+                                                    <p class="my-tooltip">
+                                                        add to cart
+                                                    </p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <i class="flaticon-visibility"></i>
+                                                    <p class="my-tooltip">
+                                                        quick view
+                                                    </p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html">
+                                                    <i class="flaticon-refresh"></i>
+                                                    <p class="my-tooltip">
+                                                        compare
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- pagination -->
+                        <div class="col-lg-12">
+                            <div class="pages">
+                                <ul class="d-flex justify-content-center">
+                                    <li><a href="#!"><i class="flaticon-chevron-1"></i></a></li>
+                                    <li><a href="#!" class="active">1</a></li>
+                                    <li><a href="#!">2</a></li>
+                                    <li><a href="#!">3</a></li>
+                                    <li><a href="#!">4</a></li>
+                                    <li><a href="#!"><i class="flaticon-chevron"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end category area -->
+
+    <!-- start overview area -->
+    <section class="home1 overview">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bg">
+                        <div class="bg-inner">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="item d-flex align-items-center justify-content-center">
+                                        <div class="icon">
+                                            <i class="flaticon-fire-truck"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h5>free shipping</h5>
+                                            <h6>Orders over $250</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="item d-flex align-items-center justify-content-center">
+                                        <div class="icon">
+                                            <i class="flaticon-cards"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h5>quick payment</h5>
+                                            <h6>100% secure payment</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="item d-flex align-items-center justify-content-center">
+                                        <div class="icon">
+                                            <i class="flaticon-gift-box"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h5>gift certificate</h5>
+                                            <h6>Buy now $500</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="item d-flex align-items-center justify-content-center last-item">
+                                        <div class="icon">
+                                            <i class="flaticon-customer-service"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h5>24/7 support</h5>
+                                            <h6>Quick Support</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end overview area -->
+
+{% endblock %}
